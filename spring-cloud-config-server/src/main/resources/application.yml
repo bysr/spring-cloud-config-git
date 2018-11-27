@@ -1,0 +1,82 @@
+server:
+  port: 58011
+spring:
+  application:
+    name: config-server-git
+
+#  cloud:
+#    config:
+#      server:
+#        git:
+#          uri: https://github.com/bysr/SpringCloudConfig     # 配置git仓库的地址
+#          search-paths: config-repo                             # git仓库地址下的相对地址，可以配置多个，用,分割。
+#          username: bysr                                             # git仓库的账号
+#          password: www8578778                                            # git仓库的密码
+  cloud:
+    config:
+      server:
+        git:
+          uri: git@10.10.3.100:/home/git/wyw
+          ignoreLocalSshSettings: true
+          search-paths: config-repo
+#          hostKey: m1350212947@163.com
+#          hostKeyAlgorithm: ssh-rsa
+#          privateKey: |
+#              -----BEGIN RSA PRIVATE KEY-----
+#              MIIEogIBAAKCAQEAl6iOXBSMfbAn5Ye9G6EDDMjoSquB7CWkLI4i0y1aBt+hncnm
+#              GVxqBqWE2ZZ7EbYR5p336DLpE3/+xBcAEHT2TUwmANtJ5I/wogHj6v7lO9FwqpAZ
+#              ancJDo21pxY5e+8VFIK6V5SPXmK3+IJ/phktFsavTXjK9TB06K142le4oe0PcZFI
+#              gLI/xMbCs5Fj02uAe+wmzhm/1sqOAU1IsJkiN/oO4kOAMF6MrpqigMSbeUjy9DnY
+#              kwk6tx0r+WdVLAxPy7+8defYOqm/uoyJu97nq3TVJ8MNakEW9MGM+8q1KkhuBdFM
+#              pbLz4RULaWgZBXLIi4eomYau/YLY34AsksazmwIDAQABAoIBAA1cjl5SeSZBtOIm
+#              GWUrxGcF9GFPxvyVPGeohizw2/OrFEQgm6M0XysCvjelaGZhEiatWEAe7CYJqtp/
+#              5EOO6nxY7yg4KcR3Yg4D+J6lonCovTJpy7NzlVqw5YY5EQt4PvU1p1E8B32bWPYO
+#              GUz6/tv42U0MDWWYxVQSpIkoHV42r+M0rWNlLgbaJSMyTebovkK4L3oo5VlUESeG
+#              n/6Sm/Ve2iQwSh/sq+qYvO2Th/NxR1a0HAjnvDzPixjOrzLZMuIebYj5hvm/rGRu
+#              R5qlrZyVHE+5xDVl4J8zugK4+y7M3UybBXmcnWpZHteoTiPxxfSMmBbAuQLAXLYJ
+#              LIQvQgECgYEAxgCD0Is7YvDe7dIRZ4RkVxVb3paaab+EDnvfT9orz/44CV7LQD1O
+#              SbIxUdwjvVL53PquCOIuPvlRsPKqra+C4EbHaP2lCVFKB+1qvPSd4LJusZ+RpSsm
+#              iPwqhRd0RFbtO60WizlAahsMNWJU4sLJ9lRZwsf0PZZzHvjZxhXnuYECgYEAxBTl
+#              XKTseBfpEs3W1jbKonausDcgTNvj3zfC8T9NBUIOqC7bMgSsmZBKH4EMzeEW1RER
+#              rOLJ6Ew2x4kvZbYoLD8gPpHAdepowaOxGDLCCRbf+DjqYfzcZMdcXS0Bfu8ylHFd
+#              0oJvNjNYUsGufOwHh1xl0oRNMxapmSmxMaq5oxsCgYAxwnNd93+nL812ivJgx37H
+#              +9AoskSACudPFIZcdQHJtaOzhyUhMcb48lU+s0owDChLBpyyEtV4cgO7qmCGYbNM
+#              Vb1Lf2L4YntuXpYSgo8ipvT2oplhnuSCTI0LAYfwnL/l3Wvq9SphAAcja2DV1AoZ
+#              Y71jHAkfaS3pPLTN+TdRAQKBgFxolKeSujbm3dsU0xjlfZ4PXMiDUl+mib/bIa5c
+#              bMn7lbjBTGBIP6enjqdGRGiKmh4UC0Z1Iz6tHGvxRTskG86ueV3DhvaLYI9Ru9Zx
+#              pWxvMWJkQGGpr5x3MBphaYEO7cFzpAnfmtXqYMevq7IH8oxiiUIrQ8698XPTaETF
+#              9vLdAoGAHskEVMdMMJqV35GZACBDKE0AAq/FlOHSNXPXWbAfzu2qxlWo7Ij1ukHU
+#              ujN0EpiygAVxlbgyXjZfdrSXI+Y8TTlAg3tFagZOXUYZIAiUphE42nh3DG/C2g8x
+#              TvzHngteAmkvnp0lTs+rWdVirBv35PcC1HPIbj+Rf8PRXTjbbiM=
+#              -----END RSA PRIVATE KEY-----
+
+
+
+
+
+  rabbitmq:
+#    host: 39.105.197.25
+    host: 10.10.152.51
+    port: 5672
+    username: guest
+    password: guest
+
+
+
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://10.10.152.69:58000/eureka/,http://10.10.153.73:58000/eureka/,http://10.10.153.114:58000/eureka/
+  instance:
+    lease-renewal-interval-in-seconds: 10
+    lease-expiration-duration-in-seconds: 30
+    prefer-ip-address: true
+
+#刷新时关闭安全验证
+management:
+  security:
+     enabled: false
+
+
